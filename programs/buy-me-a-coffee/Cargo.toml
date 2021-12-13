@@ -1,0 +1,19 @@
+[package]
+name = "buy-me-a-coffee"
+version = "0.1.0"
+description = "Buy me a coffee"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "buy_me_a_coffee"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.18.2"
