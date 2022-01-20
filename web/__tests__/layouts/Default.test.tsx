@@ -1,8 +1,12 @@
 import { render } from '@testing-library/react';
 
-import Home from '../../pages/index';
+import DefaultLayout from '@/layouts/Default';
 
 test('Index page matches snapshot', () => {
-  const { asFragment } = render(<Home />);
+  const { asFragment } = render(
+    <DefaultLayout>
+      <></>
+    </DefaultLayout>
+  );
   expect(asFragment()).toMatchSnapshot();
 });
