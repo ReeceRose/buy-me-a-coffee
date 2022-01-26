@@ -1,3 +1,4 @@
+import IndexNavbar from '@/components/Navbars/IndexNavbar';
 import SEO from '@/components/SEO';
 
 interface Props {
@@ -11,7 +12,10 @@ export default function DefaultLayout({ children }: Props): JSX.Element {
         title="Buy Me a Coffee"
         description="Support a creator by tipping with crypto"
       />
-      {children}
+      <main>
+        <IndexNavbar />
+        <div className="pt-20">{children}</div>
+      </main>
     </>
   );
 }
