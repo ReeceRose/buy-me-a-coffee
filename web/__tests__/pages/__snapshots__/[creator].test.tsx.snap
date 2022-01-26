@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Creator page matches snapshot 1`] = `
+exports[`Creator page tests Page matches snapshot 1`] = `
 <DocumentFragment>
   <main>
     <nav

@@ -4,6 +4,7 @@ type Props = {
   title: string;
   description: string;
 };
+
 export default function SEO({ title, description }: Props): JSX.Element {
   const siteURL = process.env.SITE_URL;
 

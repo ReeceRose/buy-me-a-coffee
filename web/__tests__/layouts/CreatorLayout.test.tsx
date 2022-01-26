@@ -2,13 +2,15 @@ import { render } from '@testing-library/react';
 
 import CreatorLayout from '@/layouts/Creator';
 
-test('Creator layout matches snapshot', () => {
-  const title = 'Test';
-  const { asFragment } = render(
-    <CreatorLayout title={title} description="test">
-      <></>
-    </CreatorLayout>
-  );
+describe('Creator layout tests', () => {
+  test('Layout matches snapshot', () => {
+    const title = 'TestCreator';
+    const { asFragment } = render(
+      <CreatorLayout title={title} description="TestCreator">
+        <></>
+      </CreatorLayout>
+    );
 
-  expect(asFragment()).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

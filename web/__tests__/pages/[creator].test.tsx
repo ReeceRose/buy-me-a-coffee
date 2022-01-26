@@ -1,22 +1,29 @@
+import { GetServerSidePropsContext } from 'next';
+
 import { render } from '@testing-library/react';
 
-import Creator from '@/pages/[creator]';
+import Creator, { getServerSideProps } from '@/pages/[creator]';
+import { ParsedUrlQuery } from 'querystring';
 
-jest.mock('next/router', () => ({
-  useRouter() {
-    return {
-      route: '/test',
-      pathname: '',
-      query: {
-        creator: 'TEST',
-      },
-      asPath: '',
+describe('Creator page tests', () => {
+  test('Page matches snapshot', () => {
+    const { asFragment } = render(<Creator creator="TEST" />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('getServerSide props returns expected data', async () => {
+    const context = {
+      query: { creator: 'TestCreator' } as ParsedUrlQuery,
     };
-  },
-}));
+    const response = await getServerSideProps(
+      context as GetServerSidePropsContext
+    );
 
-test('Creator page matches snapshot', () => {
-  const { asFragment } = render(<Creator />);
-
-  expect(asFragment()).toMatchSnapshot();
+    expect(response).toEqual({
+      props: {
+        creator: 'TestCreator',
+      },
+    });
+  });
 });
