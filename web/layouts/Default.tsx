@@ -11,7 +11,7 @@ export default function DefaultLayout({ children }: Props): JSX.Element {
         title="Buy Me a Coffee"
         description="Support a creator by tipping with crypto"
       />
-      <main>{children}</main>
+      {children}
     </>
   );
 }

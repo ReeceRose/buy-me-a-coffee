@@ -4,8 +4,7 @@ type Props = {
   title: string;
   description: string;
 };
-
-const SEO: React.FC<Props> = ({ title, description }) => {
+export default function SEO({ title, description }: Props): JSX.Element {
   const siteURL = process.env.SITE_URL;
 
   return (
@@ -72,6 +71,4 @@ const SEO: React.FC<Props> = ({ title, description }) => {
       />
     </Head>
   );
-};
-
-export default SEO;
+}
