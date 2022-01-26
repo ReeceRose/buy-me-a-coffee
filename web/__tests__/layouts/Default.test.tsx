@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import DefaultLayout from '@/layouts/Default';
 
-test('Index page matches snapshot', () => {
+test('Default layout matches snapshot', () => {
   const { asFragment } = render(
     <DefaultLayout>
       <></>

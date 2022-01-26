@@ -1,5 +1,5 @@
-import IndexNavbar from '@/components/Navbars/IndexNavbar';
 import SEO from '@/components/SEO';
+import IndexNavbar from '@/components/Navbars/IndexNavbar';
 
 interface Props {
   children: React.ReactNode;

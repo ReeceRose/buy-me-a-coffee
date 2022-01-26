@@ -105,7 +105,7 @@ exports[`Index page matches snapshot 1`] = `
             class="flex flex-wrap items-center"
           >
             <div
-              class="w-full px-4 pt-24 m-auto text-center lg:w-6/12"
+              class="w-full px-4 pt-24 m-auto text-center lg:w-8/12"
             >
               <h1
                 class="text-6xl font-bold text-gray-900"
@@ -113,7 +113,7 @@ exports[`Index page matches snapshot 1`] = `
                 A supporter is worth a thousand followers.
               </h1>
               <h5
-                class="text-xl"
+                class="pt-6 text-xl"
               >
                 Accept donations. Start a membership. Sell anything you like.
                 <br />
