@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index page tests Index page matches snapshot 1`] = `
+exports[`Default layout tests Layout matches snapshot 1`] = `
 <DocumentFragment>
   <main>
     <nav
@@ -94,36 +94,7 @@ exports[`Index page tests Index page matches snapshot 1`] = `
     </nav>
     <div
       class="pt-20"
-    >
-      <div
-        class="relative flex items-center content-center justify-center pt-"
-      >
-        <div
-          class="container relative mx-auto"
-        >
-          <div
-            class="flex flex-wrap items-center"
-          >
-            <div
-              class="w-full px-4 pt-24 m-auto text-center lg:w-8/12"
-            >
-              <h1
-                class="text-6xl font-bold text-gray-900"
-              >
-                A supporter is worth a thousand followers.
-              </h1>
-              <h5
-                class="pt-6 text-xl"
-              >
-                Accept donations. Start a membership. Sell anything you like.
-                <br />
-                It’s easier than you think.
-              </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    />
   </main>
 </DocumentFragment>
 `;
