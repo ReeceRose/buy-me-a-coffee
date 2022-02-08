@@ -19,12 +19,11 @@
     "config": "workspace:*",
     "jest": "^27.5.0",
     "lib": "workspace:*",
+    "next": "^12.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.5"
-  },
-  "dependencies": {
-    "next": "^12.0.10"
   }
 }
