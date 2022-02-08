@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "install": "go mod download",
+    "dev": "air run server.go",
+    "lint": "make lint",
+    "build": "make",
+    "build:docker": "docker build . -t buy-me-a-cofee-server",
+    "start:docker": "docker run --rm --name=buy-me-a-cofee-server -p 3007:3000 buy-me-a-cofee-server",
+    "stop:docker": "docker stop buy-me-a-cofee-server || true",
+    "schema:generate": "make generate",
+    "test": "make test"
+  }
+}

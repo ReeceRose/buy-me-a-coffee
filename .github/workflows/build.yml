@@ -1,26 +1,22 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Build
 
 on: [push, pull_request]
 
 jobs:
-  web:
+  build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./web
     strategy:
       matrix:
         node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Install PNMP
+        uses: pnpm/action-setup@v2.0.1
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: yarn install
-      - run: yarn build
-      - run: yarn test
+          version: 6.0.2
+      
+      - uses: actions/checkout@v2
+      - run: pnpm install
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build:docker

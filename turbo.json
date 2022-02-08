@@ -1,0 +1,31 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "build/**"]
+    },
+    "build:docker": {
+      "cache": false
+    },
+    "test": {
+      "cache": false
+    },
+    "type-check": {},
+    "test:watch": {
+      "cache": false
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "start": {},
+    "start:docker": {
+      "cache": false
+    },
+    "stop:docker": {
+      "cache": false
+    }
+  }
+}
