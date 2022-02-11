@@ -9,11 +9,12 @@ import { Creator as CreatorType } from 'lib/types';
 describe('Creator page tests', () => {
   const creator: CreatorType = {
     username: 'TestUser',
-    description: 'Test user',
+    description: 'is a test user',
     bannerImageUrl:
       'https://t3.ftcdn.net/jpg/02/68/48/86/360_F_268488616_wcoB2JnGbOD2u3bpn2GPmu0KJQ4Ah66T.jpg',
     profileImageUrl:
       'https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png',
+    supporters: 198,
   };
 
   test('Page matches snapshot', () => {

@@ -5,7 +5,7 @@ import { CreatorProps } from 'lib/types/props';
 export const CreatorHeader = ({ creator }: CreatorProps): JSX.Element => {
   return (
     <>
-      <div className="w-full px-6 m-auto text-center">
+      <div className="w-full px-6 m-auto text-center ">
         <div className="relative h-64 overflow-hidden bg-gray-500 rounded-lg">
           <div className="absolute top-0 right-0 block w-full h-full">
             <Image
@@ -30,11 +30,17 @@ export const CreatorHeader = ({ creator }: CreatorProps): JSX.Element => {
                 />
               </div>
             </div>
-            <div className="w-full px-4 -mt-10 text-center">
-              <div className="flex justify-center py-4 pt-8 lg:pt-4">
-                <div className="p-3 text-center">
-                  <span className="block text-3xl font-bold tracking-wide text-blueGray-600">
+            <div className="w-full px-4 -mt-12 text-center ">
+              <div className="flex justify-center pt-8 lg:pt-4">
+                <div className="text-center ">
+                  <span className="block text-3xl font-bold tracking-wide">
                     {creator.username}
+                  </span>
+                  <span className="block mt-1 text-xl tracking-wide">
+                    {creator.description}
+                  </span>
+                  <span className="block mt-5 text-lg tracking-wide text-gray-500">
+                    {creator.supporters} supporters
                   </span>
                 </div>
               </div>

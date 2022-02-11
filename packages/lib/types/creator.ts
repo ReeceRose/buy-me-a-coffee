@@ -3,4 +3,5 @@ export type Creator = {
   description: string;
   bannerImageUrl: string;
   profileImageUrl: string;
+  supporters: number;
 };

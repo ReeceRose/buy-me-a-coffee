@@ -11,11 +11,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // TODO: pull creator info from API
   const creator: Creator = {
     username: username,
-    description: 'Test user',
+    description: 'is a test user',
     bannerImageUrl:
       'https://t3.ftcdn.net/jpg/02/68/48/86/360_F_268488616_wcoB2JnGbOD2u3bpn2GPmu0KJQ4Ah66T.jpg',
     profileImageUrl:
       'https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png',
+    supporters: 198,
   };
   return {
     props: {
@@ -35,6 +36,8 @@ export default function CreatorPage({ creator }: CreatorProps): JSX.Element {
         <div className="container min-w-full mx-auto">
           <div className="flex flex-wrap items-center">
             <CreatorHeader creator={creator} />
+            {/* <p>test</p> */}
+            <div className="w-full border-b-2 border-gray-200"></div>
           </div>
         </div>
       </div>

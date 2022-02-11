@@ -18,7 +18,7 @@
     "type-check": "turbo run type-check",
     "test": "turbo run test",
     "test:watch": "turbo run test:watch",
-    "test:write": "turbo run test -u",
+    "test:write": "turbo run test:write",
     "prepare": "husky install",
     "pnpm-context": "pnpm/pnpm-context.mjs"
   },
