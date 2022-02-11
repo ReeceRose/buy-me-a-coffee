@@ -11,11 +11,11 @@ import (
 	"github.com/reecerose/buy-me-a-coffee/apps/server/graph/model"
 )
 
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
+func (r *mutationResolver) CreateUser(ctx context.Context, user model.NewUser) (*model.User, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
+func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
