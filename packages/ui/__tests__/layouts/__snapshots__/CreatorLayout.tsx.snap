@@ -4,13 +4,13 @@ exports[`Creator layout tests Layout matches snapshot 1`] = `
 <DocumentFragment>
   <main>
     <nav
-      class="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full px-2 py-3 bg-white"
+      class="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full px-2 py-3 bg-transparent"
     >
       <div
         class="container flex flex-wrap items-center justify-between px-4 mx-auto"
       >
         <div
-          class="flex items-center flex-grow bg-white shadow-none bg-opacity-255"
+          class="flex items-center flex-grow shadow-none "
           id="nav"
         >
           <ul
@@ -20,7 +20,7 @@ exports[`Creator layout tests Layout matches snapshot 1`] = `
               class="flex items-center"
             >
               <a
-                class="mr-2 text-lg text-gray-700 leading-lg"
+                class="mr-2 text-lg text-white leading-lg"
                 href="/"
               >
                 <span

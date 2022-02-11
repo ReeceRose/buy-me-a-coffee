@@ -11,7 +11,7 @@ import (
 	"github.com/reecerose/buy-me-a-coffee/apps/server/graph/generated"
 )
 
-const defaultPort = "8080"
+const defaultPort = "3001"
 
 func main() {
 	port := os.Getenv("PORT")

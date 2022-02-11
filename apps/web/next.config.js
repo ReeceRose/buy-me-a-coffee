@@ -7,4 +7,7 @@ module.exports = withTM({
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['t3.ftcdn.net', 'www.pngitem.com'],
+  },
 });
