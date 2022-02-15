@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { Creator } from 'lib/types/';
 
-import { CreatorHeader } from '../../../components/Headers/Creator';
+import { SupportCard } from '../../../components/Cards/Support';
 
-describe('Creator headbar tests', () => {
+describe('Support card tests', () => {
   const creator: Creator = {
     bannerImageUrl:
       'https://www.pngitem.com/pimgs/m/505-5058955_sample-png-images-sample-png-transparent-png.png',
@@ -20,8 +20,8 @@ describe('Creator headbar tests', () => {
     },
   };
 
-  test('Headbar matches snapshot', () => {
-    const { asFragment } = render(<CreatorHeader creator={creator} />);
+  test('SupportCard matches snapshot', () => {
+    const { asFragment } = render(<SupportCard creator={creator} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

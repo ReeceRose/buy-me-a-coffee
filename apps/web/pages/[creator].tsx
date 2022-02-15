@@ -4,6 +4,7 @@ import { CreatorProps } from 'lib/types/props';
 import { Creator } from 'lib/types/';
 import { CreatorLayout } from 'ui/layouts/';
 import { CreatorHeader } from 'ui/components/Headers/';
+import { SupportCard } from 'ui/components/Cards';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const username = context.query.creator as string;
@@ -17,6 +18,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     profileImageUrl:
       'https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png',
     supporters: 198,
+    support: {
+      icon: 'Si/SiBuymeacoffee',
+      item: 'coffee',
+      defaults: [1, 3, 5],
+      pricePerItem: 1.75,
+    },
   };
   return {
     props: {
@@ -37,7 +44,8 @@ export default function CreatorPage({ creator }: CreatorProps): JSX.Element {
           <div className="flex flex-wrap items-center">
             <CreatorHeader creator={creator} />
             {/* <p>test</p> */}
-            <div className="w-full border-b-2 border-gray-200"></div>
+            <div className="w-full border-b border-gray-200"></div>
+            <SupportCard creator={creator} />
           </div>
         </div>
       </div>

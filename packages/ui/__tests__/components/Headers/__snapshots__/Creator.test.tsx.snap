@@ -46,7 +46,7 @@ exports[`Creator headbar tests Headbar matches snapshot 1`] = `
             >
               <img
                 alt="TestUser"
-                class="absolute align-middle"
+                class="absolute align-middle bg-gray-500"
                 data-nimg="fill"
                 decoding="async"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -78,7 +78,7 @@ exports[`Creator headbar tests Headbar matches snapshot 1`] = `
               <span
                 class="block mt-5 text-lg tracking-wide text-gray-500"
               >
-                 supporters
+                198 supporters
               </span>
             </div>
           </div>

@@ -26,7 +26,7 @@ export const CreatorHeader = ({ creator }: CreatorProps): JSX.Element => {
                   objectFit="cover"
                   layout="fill"
                   src={creator.profileImageUrl}
-                  className="absolute align-middle"
+                  className="absolute align-middle bg-gray-500"
                 />
               </div>
             </div>

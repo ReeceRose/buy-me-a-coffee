@@ -15,6 +15,12 @@ describe('Creator page tests', () => {
     profileImageUrl:
       'https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png',
     supporters: 198,
+    support: {
+      icon: 'Si/SiBuymeacoffee',
+      defaults: [1, 3, 5],
+      item: 'coffee',
+      pricePerItem: 1.75,
+    },
   };
 
   test('Page matches snapshot', () => {
