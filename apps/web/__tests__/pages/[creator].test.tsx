@@ -10,6 +10,7 @@ describe('Creator page tests', () => {
   const creator: CreatorType = {
     username: 'TestUser',
     description: 'is a test user',
+    wallet: 'BiofzXP2MXVFBtMeT5zmoDGkfUTkpHutAbCUkzKW2mxj',
     bannerImageUrl:
       'https://t3.ftcdn.net/jpg/02/68/48/86/360_F_268488616_wcoB2JnGbOD2u3bpn2GPmu0KJQ4Ah66T.jpg',
     profileImageUrl:

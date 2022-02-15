@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { CreatorNavbar } from '../../../components/Navbars';
+import { CreatorNavbar } from '@/components/Navbars/Creator';
 
 describe('Creator navbar tests', () => {
   test('Creator navbar matches snapshot', () => {

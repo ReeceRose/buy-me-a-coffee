@@ -2,9 +2,9 @@ import { GetServerSideProps } from 'next';
 
 import { CreatorProps } from 'lib/types/props';
 import { Creator } from 'lib/types/';
-import { CreatorLayout } from 'ui/layouts/';
+import { CreatorLayout } from '@/layouts/CreatorLayout';
 import { CreatorHeader } from 'ui/components/Headers/';
-import { SupportCard } from 'ui/components/Cards';
+import { SupportCardWrapper } from '@/components/Cards/Support';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const username = context.query.creator as string;
@@ -13,6 +13,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const creator: Creator = {
     username: username,
     description: 'is a test user',
+    wallet: 'BiofzXP2MXVFBtMeT5zmoDGkfUTkpHutAbCUkzKW2mxj',
     bannerImageUrl:
       'https://t3.ftcdn.net/jpg/02/68/48/86/360_F_268488616_wcoB2JnGbOD2u3bpn2GPmu0KJQ4Ah66T.jpg',
     profileImageUrl:
@@ -45,7 +46,7 @@ export default function CreatorPage({ creator }: CreatorProps): JSX.Element {
             <CreatorHeader creator={creator} />
             {/* <p>test</p> */}
             <div className="w-full border-b border-gray-200"></div>
-            <SupportCard creator={creator} />
+            <SupportCardWrapper creator={creator} />
           </div>
         </div>
       </div>

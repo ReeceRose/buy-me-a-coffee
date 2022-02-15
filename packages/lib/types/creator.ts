@@ -5,6 +5,7 @@ export type Creator = {
   profileImageUrl: string;
   supporters: number;
   support: Support;
+  wallet: string;
 };
 
 export type Support = {

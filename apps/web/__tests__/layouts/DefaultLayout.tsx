@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { DefaultLayout } from '../../layouts/';
+import { DefaultLayout } from '@/layouts/DefaultLayout';
 
 describe('Default layout tests', () => {
   test('Layout matches snapshot', () => {

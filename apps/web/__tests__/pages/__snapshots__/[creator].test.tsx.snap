@@ -44,6 +44,17 @@ exports[`Creator page tests Page matches snapshot 1`] = `
                 </span>
               </a>
             </li>
+            <li
+              class="flex items-center"
+            >
+              <button
+                class="wallet-adapter-button wallet-adapter-button-trigger"
+                tabindex="0"
+                type="button"
+              >
+                Select Wallet
+              </button>
+            </li>
           </ul>
         </div>
       </div>

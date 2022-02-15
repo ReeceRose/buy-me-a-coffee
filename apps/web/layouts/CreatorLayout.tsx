@@ -1,5 +1,5 @@
-import { SEO } from '../components/SEO';
-import { CreatorNavbar } from '../components/Navbars/CreatorNavbar';
+import { SEO } from 'ui/components/SEO';
+import { CreatorNavbar } from '@/components/Navbars/Creator';
 
 interface Props {
   children: React.ReactNode;

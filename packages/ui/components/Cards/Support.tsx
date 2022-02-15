@@ -1,9 +1,17 @@
+import { Creator } from 'lib/types';
 import { useState } from 'react';
 
-import { CreatorProps } from 'lib/types/props';
 import { DynamicIcon } from '../Icons/';
 
-export const SupportCard = ({ creator }: CreatorProps): JSX.Element => {
+type CreatorProps = {
+  creator: Creator;
+  onClick: (creator_wallet: string, amount: number) => Promise<void>;
+};
+
+export const SupportCard = ({
+  creator,
+  onClick,
+}: CreatorProps): JSX.Element => {
   const [quantity, setQuanity] = useState<number>(creator.support.defaults[0]);
 
   return (
@@ -65,6 +73,12 @@ export const SupportCard = ({ creator }: CreatorProps): JSX.Element => {
                   <button
                     className="w-full px-6 py-3 mb-1 mr-1 text-base font-bold text-white uppercase transition-all duration-150 ease-linear bg-orange-400 rounded-full shadow outline-none hover:shadow-lg focus:outline-none"
                     type="button"
+                    onClick={() =>
+                      onClick(
+                        creator.wallet,
+                        quantity * creator.support.pricePerItem
+                      )
+                    }
                   >
                     Support ${quantity * creator.support.pricePerItem}
                   </button>

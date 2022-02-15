@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { CreatorLayout } from '../../layouts';
+import { CreatorLayout } from '@/layouts/CreatorLayout';
 
 describe('Creator layout tests', () => {
   test('Layout matches snapshot', () => {

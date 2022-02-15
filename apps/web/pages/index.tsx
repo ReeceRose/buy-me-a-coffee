@@ -1,4 +1,4 @@
-import { DefaultLayout } from 'ui/layouts/';
+import { DefaultLayout } from '@/layouts/DefaultLayout';
 
 export default function Index(): JSX.Element {
   return (

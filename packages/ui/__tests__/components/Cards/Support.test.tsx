@@ -10,6 +10,7 @@ describe('Support card tests', () => {
     profileImageUrl:
       'https://www.pngitem.com/pimgs/m/505-5058955_sample-png-images-sample-png-transparent-png.png',
     username: 'TestUser',
+    wallet: '123',
     description: 'Test user is helping with tests',
     supporters: 198,
     support: {
@@ -21,7 +22,9 @@ describe('Support card tests', () => {
   };
 
   test('SupportCard matches snapshot', () => {
-    const { asFragment } = render(<SupportCard creator={creator} />);
+    const { asFragment } = render(
+      <SupportCard creator={creator} onClick={() => Promise.resolve()} />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
