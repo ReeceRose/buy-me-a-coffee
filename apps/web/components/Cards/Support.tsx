@@ -1,42 +1,70 @@
+import { useCallback } from 'react';
+
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import {
-  LAMPORTS_PER_SOL,
-  PublicKey,
-  SystemProgram,
-  Transaction,
-} from '@solana/web3.js';
 
-import { CreatorProps } from 'lib/types/props';
-import { useCallback } from 'react';
-import { SupportCard } from 'ui/components/Cards';
+import { CreatorProps } from 'lib/types/props/';
+import { createUSDCTransaction } from '@/solana/transactions/createUSDCTransaction';
+
+import { SupportCard } from 'ui/components/Cards/';
+import { DEVNET } from 'lib/consts';
 
 export const SupportCardWrapper = ({ creator }: CreatorProps): JSX.Element => {
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
+  const environment = process.env.SOLANA_ENV || DEVNET;
 
   const onClick = useCallback(
-    async (creator_wallet: string, quantity: number) => {
-      // TODO: extract logic
+    async (creator_wallet: string, amount: number) => {
       if (!publicKey) throw new WalletNotConnectedError();
 
-      const wallet = new PublicKey(creator_wallet);
-
-      console.log(quantity);
-
-      const transaction = new Transaction().add(
-        SystemProgram.transfer({
-          fromPubkey: publicKey,
-          toPubkey: wallet,
-          lamports: LAMPORTS_PER_SOL / 4,
-        })
+      // TODO: make sure both sender/reciever have USDC token in their wallet
+      const transaction = await createUSDCTransaction(
+        connection,
+        publicKey.toBase58(),
+        creator_wallet,
+        amount,
+        environment
       );
-      const signature = await sendTransaction(transaction, connection);
 
-      await connection.confirmTransaction(signature, 'processed');
+      if (transaction) {
+        const signature = await sendTransaction(transaction, connection);
+        await connection.confirmTransaction(signature, 'processed');
+        console.log(signature);
+      } else {
+        console.log('error sending transaction');
+      }
     },
-    [publicKey, sendTransaction, connection]
+    [publicKey, connection, environment, sendTransaction]
   );
+
+  // const onClick = useCallback(
+  //   async (creator_wallet: string, amount: number) => {
+  //     if (!publicKey) throw new WalletNotConnectedError();
+  //     const USDC = new PublicKey(
+  //       'Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr'
+  //     );
+  //     // TODO: make sure both sender/reciever have USDC token in their wallet
+  //     const transaction = await createTransaction(
+  //       connection,
+  //       new PublicKey(publicKey),
+  //       new PublicKey(creator_wallet),
+  //       new BigNumber(amount),
+  //       {
+  //         splToken: USDC,
+  //         memo: 'buy-me-a-coffee',
+  //       }
+  //     );
+
+  //     if (transaction) {
+  //       const signature = await sendTransaction(transaction, connection);
+  //       await connection.confirmTransaction(signature, 'processed');
+  //     } else {
+  //       console.log('error sending transaction');
+  //     }
+  //   },
+  //   [publicKey, connection, sendTransaction]
+  // );
 
   return (
     <>
