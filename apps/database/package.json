@@ -1,0 +1,10 @@
+{
+  "name": "database",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "dev": "./start.sh",
+    "start:docker": "./start.sh",
+    "stop:docker": "./stop.sh"
+  }
+}
