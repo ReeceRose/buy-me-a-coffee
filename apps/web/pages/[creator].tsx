@@ -1,10 +1,10 @@
 import { GetServerSideProps } from 'next';
 
-import { CreatorProps } from 'lib/types/props';
-import { Creator } from 'lib/types/';
+import { CreatorProps } from '@/lib/props/';
+import { Creator } from '@/lib/types/';
 import { CreatorLayout } from '@/layouts/CreatorLayout';
-import { CreatorHeader } from 'ui/components/Headers/';
-import { SupportCardWrapper } from '@/components/Cards/Support';
+import { CreatorHeader } from '@/components/Headers/Creator';
+import { SupportCard } from '@/components/Cards/Support';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const username = context.query.creator as string;
@@ -46,7 +46,7 @@ export default function CreatorPage({ creator }: CreatorProps): JSX.Element {
             <CreatorHeader creator={creator} />
             {/* <p>test</p> */}
             <div className="w-full border-b border-gray-200"></div>
-            <SupportCardWrapper creator={creator} />
+            <SupportCard creator={creator} />
           </div>
         </div>
       </div>

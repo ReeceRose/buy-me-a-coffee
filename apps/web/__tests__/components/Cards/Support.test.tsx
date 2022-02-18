@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
-import { Creator } from 'lib/types/';
+import { Creator } from '@/lib/types/';
 
-import { SupportCard } from '../../../components/Cards/Support';
+import { SupportCard } from '@/components/Cards/Support';
 
 describe('Support card tests', () => {
   const creator: Creator = {
@@ -22,9 +22,7 @@ describe('Support card tests', () => {
   };
 
   test('SupportCard matches snapshot', () => {
-    const { asFragment } = render(
-      <SupportCard creator={creator} onClick={() => Promise.resolve()} />
-    );
+    const { asFragment } = render(<SupportCard creator={creator} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

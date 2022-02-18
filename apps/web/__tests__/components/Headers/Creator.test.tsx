@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
-import { Creator } from 'lib/types/';
+import { Creator } from '@/lib/types/';
 
-import { CreatorHeader } from '../../../components/Headers/Creator';
+import { CreatorHeader } from '@/components/Headers/Creator';
 
 describe('Creator headbar tests', () => {
   const creator: Creator = {

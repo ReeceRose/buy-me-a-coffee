@@ -1,11 +1,26 @@
+// TODO: Next 12.1 jest
 module.exports = {
-  ...require('config/jest-nextjs'),
+  collectCoverageFrom: [
+    '**/*.{js,jsx,ts,tsx}',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+  ],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+  },
+  transformIgnorePatterns: [
+    '/node_modules/',
+    '^.+\\.module\\.(css|sass|scss)$',
+  ],
+  testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
     '^@/layouts/(.*)$': '<rootDir>/layouts/$1',
     '^@/solana/(.*)$': '<rootDir>/solana/$1',
+    '^@/lib/(.*)$': '<rootDir>/lib/$1',
   },
   setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setupTests.js'],

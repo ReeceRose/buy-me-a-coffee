@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { CreatorProps } from '@/lib/types/props';
+import { CreatorProps } from '@/lib/props/';
 
 export const CreatorHeader = ({ creator }: CreatorProps): JSX.Element => {
   return (
