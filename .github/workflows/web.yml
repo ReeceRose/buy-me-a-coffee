@@ -4,7 +4,9 @@ on: [push, pull_request]
 
 jobs:
   build:
-    working-directory: apps/web
+    defaults:
+      run:
+        working-directory: apps/web
     runs-on: ubuntu-latest
 
     strategy:
