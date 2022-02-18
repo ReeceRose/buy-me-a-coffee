@@ -22,7 +22,6 @@ COPY ./deps .
 RUN pnpm build --if-present --filter "{${PACKAGE_PATH}}^..."
 # ↑ Build dependencies separately, because they often change less often than the package itself
 COPY ./pkg .
-RUN pnpm test --if-present --filter "{${PACKAGE_PATH}}"
 RUN NODE_ENV=production pnpm build --filter "{${PACKAGE_PATH}}"
 
 FROM dev AS assets
