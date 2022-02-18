@@ -1,4 +1,4 @@
-import { SEO } from 'ui/components/SEO';
+import { SEO } from '@/components/SEO';
 import { CreatorNavbar } from '@/components/Navbars/Creator';
 
 interface Props {

@@ -1,45 +1,42 @@
-FROM node:16-alpine AS base
-ARG PNPM_VERSION=6.17.0
-RUN npm --no-update-notifier --no-fund --global install pnpm@${PNPM_VERSION}
-WORKDIR /root/monorepo
+# Install dependencies only when needed
+FROM node:16-alpine AS deps
 
-FROM base AS dev
-ARG PACKAGE_PATH
-ENV CI=true
-COPY ./meta .
-RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store\
-  # ↑ By caching the content-addressable store we stop downloading the same packages again and again
-  pnpm install --filter "{${PACKAGE_PATH}}..."\
-  --frozen-lockfile\
-  --unsafe-perm\
-  # ↑ Docker runs pnpm as root and then pnpm won't run package scripts unless we pass this arg
-  | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
-# ↑ Unfortunately using Docker's 'cache' mount type causes Docker to place the pnpm content-addressable store
-# on a different virtual drive, which prohibits pnpm from symlinking its content to its virtual store
-# (in node_modules/.pnpm), and that causes pnpm to fall back on copying the files.
-# And that's fine!, except pnpm emits many warnings of this, so here we filter those out.
-COPY ./deps .
-RUN pnpm build --if-present --filter "{${PACKAGE_PATH}}^..."
-# ↑ Build dependencies separately, because they often change less often than the package itself
-COPY ./pkg .
-RUN NODE_ENV=production pnpm build --filter "{${PACKAGE_PATH}}"
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-FROM dev AS assets
-RUN rm -rf node_modules && pnpm recursive exec -- rm -rf ./src ./node_modules
+# Rebuild the source code only when needed
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
-FROM base AS prod
-ARG PACKAGE_PATH
-ENV CI=true
-COPY ./meta .
-RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store\
-  pnpm install --filter "{${PACKAGE_PATH}}..."\
-  --frozen-lockfile\
-  --unsafe-perm\
-  --prod\
-  | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
-COPY --from=assets /root/monorepo .
+ENV NEXT_TELEMETRY_DISABLED 1
 
-WORKDIR /root/monorepo/${PACKAGE_PATH}
+RUN yarn build
+
+# Production image, copy all the files and run next
+FROM node:16-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 EXPOSE 3000
-ENV NODE_ENV=production
-ENTRYPOINT ["pnpm", "start"]
+
+ENV PORT 3000
+
+CMD ["node", "server.js"]

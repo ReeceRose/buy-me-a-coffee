@@ -1,13 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withTM = require('next-transpile-modules')(['ui']);
-
-module.exports = withTM({
+module.exports = {
   swcMinify: true,
-  reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
+  experimental: {
+    outputStandalone: true,
   },
   images: {
     domains: ['t3.ftcdn.net', 'www.pngitem.com'],
   },
-});
+};

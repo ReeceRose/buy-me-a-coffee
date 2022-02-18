@@ -1,4 +1,4 @@
-import { MAINNET, TESTNET } from 'lib/consts';
+import { MAINNET, TESTNET } from '@/lib/consts';
 
 export const getUSDCTokenPublicKey = (environment: string): string => {
   switch (environment) {

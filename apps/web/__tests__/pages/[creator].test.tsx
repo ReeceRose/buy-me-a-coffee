@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 
 import Creator, { getServerSideProps } from '@/pages/[creator]';
 import { ParsedUrlQuery } from 'querystring';
-import { Creator as CreatorType } from 'lib/types';
+import { Creator as CreatorType } from '@/lib/types';
 
 describe('Creator page tests', () => {
   const creator: CreatorType = {
