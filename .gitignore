@@ -19,14 +19,11 @@ tsconfig.tsbuildinfo
 # go
 vendor/
 tmp/
+apps/server/server
 
 # misc
 .DS_Store
 *.pem
-
-# prisma
-dev.db
-dev.db-journal
 
 # debug
 npm-debug.log*
@@ -40,6 +37,3 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-
-# turbo
-.turbo

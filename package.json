@@ -8,7 +8,7 @@
     "start:docker": "pnpm run -r start:docker",
     "stop:docker": "pnpm run -r stop:docker",
     "push:docker": "./scripts/push.sh",
-    "dev": "pnpm run dev -r",
+    "dev": "pnpm run -r dev",
     "lint": "pnpm run -r lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "type-check": "pnpm run -r type-check",
