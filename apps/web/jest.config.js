@@ -1,19 +1,15 @@
-// TODO: Next 12.1 jest
-module.exports = {
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({
+  dir: './',
+})
+
+const customJestConfig = {
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
-  },
-  transformIgnorePatterns: [
-    '/node_modules/',
-    '^.+\\.module\\.(css|sass|scss)$',
-  ],
-  testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '^@/components/(.*)$': '<rootDir>/components/$1',
@@ -22,7 +18,10 @@ module.exports = {
     '^@/solana/(.*)$': '<rootDir>/solana/$1',
     '^@/lib/(.*)$': '<rootDir>/lib/$1',
   },
-  setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
-  setupFilesAfterEnv: ['<rootDir>/.jest/setupTests.js'],
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  moduleDirectories: ['node_modules', '<rootDir>/'],
+  testEnvironment: 'jest-environment-jsdom',
 }
+
+module.exports = createJestConfig(customJestConfig)
