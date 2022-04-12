@@ -2,7 +2,7 @@ import { DefaultLayout } from '@/layouts/DefaultLayout';
 
 export default function Index(): JSX.Element {
   return (
-    <DefaultLayout siteURL={process.env.SITE_URK || 'http://localhost:3000'}>
+    <DefaultLayout siteURL={process.env.SITE_URL || 'http://localhost:3000'}>
       <div className="relative flex items-center content-center justify-center pt-">
         <div className="container relative mx-auto">
           <div className="flex flex-wrap items-center">
