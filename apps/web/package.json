@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev --port 3000",
     "build": "next build",
-    "build:docker": "docker build . -t buy-me-a-cofee-web",
+    "build:docker": "docker build . -t buy-me-a-coffee-web",
     "start": "next start",
-    "start:docker": "docker run --rm --name=buy-me-a-cofee-web -p 3000:3000 buy-me-a-cofee-web",
-    "stop:docker": "docker stop buy-me-a-cofee-web || true",
+    "start:docker": "docker run --rm --name=buy-me-a-coffee-web -p 3000:3000 buy-me-a-coffee-web",
+    "stop:docker": "docker stop buy-me-a-coffee-web || true",
     "lint": "next lint",
     "type-check": "tsc --project tsconfig.json --noEmit",
     "test": "jest",

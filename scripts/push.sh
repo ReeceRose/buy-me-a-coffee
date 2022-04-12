@@ -12,5 +12,5 @@ tag_and_push () {
   docker push "${USERNAME}/$1:${VERSION}"
 }
 
-tag_and_push buy-me-a-cofee-server
-tag_and_push buy-me-a-cofee-web
+tag_and_push buy-me-a-coffee-server
+tag_and_push buy-me-a-coffee-web

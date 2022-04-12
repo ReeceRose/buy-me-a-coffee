@@ -12,4 +12,4 @@ generate:
 	go run github.com/99designs/gqlgen generate
 
 docker:
-	docker build . -t buy-me-a-cofee-server
+	docker build . -t buy-me-a-coffee-server
