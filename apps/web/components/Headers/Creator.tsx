@@ -11,6 +11,7 @@ export const CreatorHeader = ({ creator }: CreatorProps): JSX.Element => {
             <Image
               className="object-cover h-full min-w-full"
               layout="fill"
+              alt="Creator banner image"
               src={creator.bannerImageUrl}
             />
           </div>
